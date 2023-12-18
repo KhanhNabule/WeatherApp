@@ -108,11 +108,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             long lday=Long.parseLong(day);
                             SimpleDateFormat dateFormat=new SimpleDateFormat();
                             Date date=new Date(lday*1000L);
-                            String curentTime=dateFormat.format(date);
-                            textViewDay.setText(curentTime);
+                            String currentTime=dateFormat.format(date);
+                            textViewDay.setText(currentTime);
                             LinearLayout myLayout = findViewById(R.id.background_layout);
-                            if("Mist".equals(temperStatus)) {
-                                myLayout.setBackgroundResource(R.drawable.background2);
+                            if("Clouds".equals(temperStatus)) {
+                                myLayout.setBackgroundResource(R.drawable.banngay);
+                            } else if("Haze".equals(temperStatus) || "Mist".equals(temperStatus)) {
+                                myLayout.setBackgroundResource(R.drawable.bui);
+                            } else if("Clear".equals(temperStatus)) {
+                                myLayout.setBackgroundResource(R.drawable.clear);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -155,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 hourlyList.add(new Hourly(currentHour,tempHourly,iconHourly));
                             }
                             adapterHourly.notifyDataSetChanged();
-                        } catch (JSONException e) {
+                            } catch (JSONException e) {
                         }
                     }
                 },
