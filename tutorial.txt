@@ -1,0 +1,1 @@
+Ứng dụng được viết bằng Java, sử dụng trên Android Studio
